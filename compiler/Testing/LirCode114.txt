@@ -1,0 +1,68 @@
+str1: "a=3" 
+str0: "a=4" 
+_DV_A: [_A_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Move 3, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move 4, v3a
+# Done Assignment:
+Move v3a, R0
+Compare 4, R0
+JumpFalse _then_0lable
+Move 1, R0
+Jump _end_0lable
+_then_0lable:
+Move 0, R0
+_end_0lable:
+Move R0, R1
+Compare 0, R1
+JumpFalse _then_1lable
+Jump _else_1lable
+_then_1lable:
+Library __println(str0), Rdummy
+Jump _end_1lable
+_else_1lable:
+_end_1lable:
+Move v2a, R2
+Compare 3, R2
+JumpFalse _then_2lable
+Move 1, R2
+Jump _end_2lable
+_then_2lable:
+Move 0, R2
+_end_2lable:
+Move R2, R3
+Compare 0, R3
+JumpFalse _then_3lable
+Jump _else_3lable
+_then_3lable:
+Library __println(str1), Rdummy
+Jump _end_3lable
+_else_3lable:
+_end_3lable:
+Library __exit(0), Rdummy
+
+_A_staticFunc:
+# AssignStmt:
+# Evaluate the expression:
+Move 4, v2a
+# Done Assignment:
+Return v2a
+
+_A_func:
+# AssignStmt:
+# Evaluate the expression:
+Move this, R4
+MoveField R4.1, R5
+Add 10, R5
+# Assign the expression:
+MoveField R5, R4.1
+# Done Assignment:
+StaticCall _A_staticFunc(), R6
+Return R6
+

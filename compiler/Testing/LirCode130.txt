@@ -1,0 +1,36 @@
+str0: "Null was returned" 
+_DV_A: []
+
+_ic_main:
+# Assignment:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R1
+MoveField _DV_A, R1.0
+Move R1, v2a
+# //Assignment
+# IF statement:
+StaticCall _A_func(), R2
+Compare 1, R2
+JumpFalse _then_0lable
+Move 1, R2
+Jump _end_0lable
+_then_0lable:
+Move 0, R2
+_end_0lable:
+# Done accepting IF boolean expression
+Move R2, R3
+Compare 0, R3
+JumpFalse _then_1lable
+Jump _else_1lable
+_then_1lable:
+Library __println(str0), Rdummy
+Jump _end_1lable
+_else_1lable:
+_end_1lable:
+# //IF statement
+Library __exit(0), Rdummy
+
+_A_func:
+Return 1
+

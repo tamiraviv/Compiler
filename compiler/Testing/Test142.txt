@@ -1,0 +1,13 @@
+class A
+{
+	
+	static void main(string[] args)
+	{
+		int[] a = null;
+		
+	
+		Library.printi(a[0]);
+	}
+}
+
+

@@ -1,0 +1,18 @@
+class A
+{
+	int a;
+	A[] aClass;
+	
+	static void main(string[] args)
+	{
+		A a = new A();
+		
+		if(null == null)		
+		{
+			Library.println("a is null");
+		}
+		
+	}
+	
+}
+

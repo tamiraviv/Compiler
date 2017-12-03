@@ -1,0 +1,84 @@
+# Error Strings:
+str_err_checkNullRef: "Runtime Error: Null pointer dereference!" 
+str_err_checkArrayAccess: "Runtime Error: Array index out of bounds!" 
+str_err_checkSize: "Runtime Error: Array allocation with non-positive array size!" 
+str_err_checkZero: "Runtime Error: Division by zero!" 
+
+_DV_A: []
+_DV_B: [_B_func]
+
+# Error verification functions:
+
+__checkNullRef:
+Move a, R01
+Compare 0, R01
+JumpTrue _error_checkNullRef
+Return 9999
+
+
+_error_checkNullRef:
+Library __println(str_err_checkNullRef), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+
+__checkArrayAccess:
+ArrayLength a, R01
+Compare i, R01
+JumpLE _error_checkArrayAccess
+Move i, R01
+Compare 0, R01
+JumpL _error_checkArrayAccess
+Return 9999
+
+_error_checkArrayAccess:
+Library __println(str_err_checkArrayAccess), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+
+
+_ic_main:
+# Assignment:
+# Evaluate the expression:
+# new B() :
+Library __allocateObject(12), R0
+MoveField _DV_B, R0.0
+# Assign the expression:
+Move R0, v2b
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+StaticCall __checkNullRef(a=v2b),Rdummy
+Move v2b, R1
+MoveField R1.1, R2
+# Assign the expression:
+MoveField 5, R1.1
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+# new B() :
+Library __allocateObject(12), R3
+MoveField _DV_B, R3.0
+StaticCall __checkNullRef(a=v2b),Rdummy
+Move v2b, R4
+MoveField R4.2, R5
+# Assign the expression:
+MoveField R3, R4.2
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+StaticCall __checkNullRef(a=v2b),Rdummy
+Move v2b, R6
+MoveField R6.2, R7
+StaticCall __checkNullRef(a=R7),Rdummy
+MoveField R7.1, R8
+# Assign the expression:
+MoveField 9, R7.1
+# //Assignment
+Library __exit(0), Rdummy
+
+_B_func:
+Return 9999
+Return 9999
+

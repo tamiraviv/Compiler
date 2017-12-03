@@ -1,0 +1,10 @@
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+Library __printi(5), Rdummy
+Library __exit(0), Rdummy
+
+_B_func:
+Return 211
+

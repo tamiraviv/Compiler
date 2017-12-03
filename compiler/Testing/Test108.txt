@@ -1,0 +1,33 @@
+class A
+{
+	int a;
+	A[] aClass;
+	
+	static void main(string[] args)
+	{
+		A a1 = new A();
+		a1.a=10;
+		
+		A a2 = new A();
+		a2.a=100;
+		
+		Library.printi(a1.func()); Library.println("");
+		Library.printi(a1.func()); Library.println("");
+		
+		Library.printi(a2.func()); Library.println("");
+		Library.printi(a2.func()); Library.println("");
+		
+		Library.printi(a1.func()); Library.println("");
+		
+		
+		
+	}
+	
+	int func()
+	{
+		a = a + 10;
+		return a;
+	}
+	
+}
+

@@ -1,0 +1,115 @@
+str0: "" 
+_DV_A: []
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Library __allocateArray(40), R0
+Move R0, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R1
+MoveField _DV_A, R1.0
+Move v2a, R3
+MoveArray R3[0], R2
+# Assign the expression:
+MoveArray R1, R3[0]
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R4
+MoveField _DV_A, R4.0
+Move v2a, R6
+MoveArray R6[1], R5
+# Assign the expression:
+MoveArray R4, R6[1]
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R8
+MoveArray R8[0], R7
+MoveField R7.1, R9
+# Assign the expression:
+MoveField 0, R7.1
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R11
+MoveArray R11[1], R10
+MoveField R10.1, R12
+# Assign the expression:
+MoveField 1, R10.1
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __allocateArray(20), R13
+Move v2a, R15
+MoveArray R15[0], R14
+MoveField R14.2, R16
+# Assign the expression:
+MoveField R13, R14.2
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R17
+MoveField _DV_A, R17.0
+Move v2a, R19
+MoveArray R19[0], R18
+MoveField R18.2, R20
+MoveArray R20[0], R21
+# Assign the expression:
+MoveArray R17, R20[0]
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R23
+MoveArray R23[0], R22
+MoveField R22.2, R24
+MoveArray R24[0], R25
+MoveField R25.1, R26
+# Assign the expression:
+MoveField 15, R25.1
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R28
+MoveArray R28[0], R27
+MoveField R27.2, R29
+MoveArray R29[0], R30
+# Assign the expression:
+Move R30, v2a1
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a1, R31
+MoveField R31.1, R32
+# Assign the expression:
+MoveField 16, R31.1
+# Done Assignment:
+Move v2a, R34
+MoveArray R34[0], R33
+MoveField R33.1, R35
+Library __printi(R35), Rdummy
+Library __println(str0), Rdummy
+Move v2a, R37
+MoveArray R37[1], R36
+MoveField R36.1, R38
+Library __printi(R38), Rdummy
+Library __println(str0), Rdummy
+Move v2a, R40
+MoveArray R40[0], R39
+MoveField R39.2, R41
+MoveArray R41[0], R42
+MoveField R42.1, R43
+Library __printi(R43), Rdummy
+Library __println(str0), Rdummy
+Move v2a1, R44
+MoveField R44.1, R45
+Library __printi(R45), Rdummy
+Library __println(str0), Rdummy
+Library __exit(0), Rdummy
+

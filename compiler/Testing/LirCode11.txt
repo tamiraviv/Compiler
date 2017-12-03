@@ -1,0 +1,19 @@
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Move 123, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __itos(v2a), R0
+Move R0, v2b
+# Done Assignment:
+Library __println(v2b), Rdummy
+Library __exit(0), Rdummy
+
+_B_func:
+Return 211
+

@@ -1,0 +1,56 @@
+str0: "" 
+_DV_A: [_A_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R0
+MoveField _DV_A, R0.0
+Move R0, v2a1
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a1, R1
+MoveField R1.1, R2
+# Assign the expression:
+MoveField 10, R1.1
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R3
+MoveField _DV_A, R3.0
+Move R3, v2a2
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a2, R4
+MoveField R4.1, R5
+# Assign the expression:
+MoveField 100, R4.1
+# Done Assignment:
+StaticCall _A_staticFunc(), R6
+Library __printi(R6), Rdummy
+Library __println(str0), Rdummy
+Library __exit(0), Rdummy
+
+_A_staticFunc:
+# AssignStmt:
+# Evaluate the expression:
+Move 4, v2a
+# Done Assignment:
+Return v2a
+
+_A_func:
+# AssignStmt:
+# Evaluate the expression:
+Move this, R7
+MoveField R7.1, R8
+Add 10, R8
+# Assign the expression:
+MoveField R8, R7.1
+# Done Assignment:
+MoveField R7.1, R9
+Return R9
+

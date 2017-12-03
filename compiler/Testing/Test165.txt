@@ -1,0 +1,32 @@
+class A
+{
+	
+	static void main(string[] args)
+	{
+		int x = 42;
+		 while (x > 0) 
+		 {
+		 	x = x - 1;
+		 	Library.printi(x);
+		 }
+	
+	}
+}
+
+
+class B
+{
+
+	void func1()
+	{
+		this.func2();
+	}
+	
+	void func2()
+	{
+		Library.printi(2);
+	}
+	
+}
+
+

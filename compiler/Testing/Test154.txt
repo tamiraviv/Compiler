@@ -1,0 +1,22 @@
+class A
+{
+	
+	static void main(string[] args)
+	{
+		B b;
+		int c = 5;
+		int[] a = new int[c];
+		
+		a[4]  = 12;
+		
+		//Library.printi(a.length);
+	}
+}
+
+
+class B
+{
+
+}
+
+

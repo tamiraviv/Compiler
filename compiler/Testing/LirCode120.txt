@@ -1,0 +1,32 @@
+str0: "a is null" 
+_DV_A: []
+
+_ic_main:
+# Assignment:
+# Evaluate the expression:
+Move 0, R0
+Move R0, v2a
+# //Assignment
+# IF statement:
+Move v2a, R1
+Move R0, R2
+Compare R2, R1
+JumpFalse _then_0lable
+Move 1, R1
+Jump _end_0lable
+_then_0lable:
+Move 0, R1
+_end_0lable:
+# Done accepting IF boolean expression
+Move R1, R3
+Compare 0, R3
+JumpFalse _then_1lable
+Jump _else_1lable
+_then_1lable:
+Library __println(str0), Rdummy
+Jump _end_1lable
+_else_1lable:
+_end_1lable:
+# //IF statement
+Library __exit(0), Rdummy
+

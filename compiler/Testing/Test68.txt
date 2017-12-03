@@ -1,0 +1,53 @@
+class A
+{
+	
+	static void main(string[] args)
+	{
+		string str = "123a";
+		
+		int a = Library.stoi(str);
+		Library.printi(a);
+		
+		//A.fun1();
+	}
+	
+	static void fun1()
+	{
+		int[] a = new int[3];
+		int i=0;
+		
+		a[0] = 0;
+		a[1] = 1;
+		a[2] = 2;
+		
+		while(i < 3 )
+		{
+			if(i==2)
+			{
+				return;
+				i = i + 1;
+				continue;
+			}
+			Library.printi(a[i]);
+			Library.println("");
+			i = i + 1;
+			
+		}
+		
+				
+		Library.println("Done");	
+	}
+}
+
+
+class B extends A
+{
+	int b;
+
+    int func()
+	{
+		return 211;
+		
+	}
+
+}

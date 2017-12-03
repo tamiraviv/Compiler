@@ -1,0 +1,125 @@
+# Error Strings:
+str_err_checkNullRef: "Runtime Error: Null pointer dereference!" 
+str_err_checkArrayAccess: "Runtime Error: Array index out of bounds!" 
+str_err_checkSize: "Runtime Error: Array allocation with non-positive array size!" 
+str_err_checkZero: "Runtime Error: Division by zero!" 
+
+str3: "In Bar_twinkle" 
+str2: "In Bar_rise" 
+str0: "In Foo_rise" 
+str1: "In Foo_shine" 
+_DV_Bar: [_Foo_shine, _Bar_twinkle, _Bar_rise]
+_DV_Foo: [_Foo_shine, _Foo_rise]
+
+# Error verification functions:
+
+__checkNullRef:
+Move a, R01
+Compare 0, R01
+JumpTrue _error_checkNullRef
+Return 9999
+
+
+_error_checkNullRef:
+Library __println(str_err_checkNullRef), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkArrayAccess:
+ArrayLength a, R01
+Compare i, R01
+JumpLE _error_checkArrayAccess
+Move i, R01
+Compare 0, R01
+JumpL _error_checkArrayAccess
+Return 9999
+
+_error_checkArrayAccess:
+Library __println(str_err_checkArrayAccess), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkSize:
+Move n, R01
+Compare 0, R01
+JumpLE _error_checkSize
+Return 9999
+
+_error_checkSize:
+Library __println(str_err_checkSize), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkZero:
+Move b, R01
+Compare 0, R01
+JumpTrue _error_checkZero
+Return 9999
+
+_error_checkZero:
+Library __println(str_err_checkZero), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+
+
+_ic_main:
+# Assignment:
+# Evaluate the expression:
+# new Bar() :
+Library __allocateObject(16), R0
+MoveField _DV_Bar, R0.0
+Move R0, v2f
+# //Assignment
+StaticCall __checkNullRef(a=v2f),Rdummy
+Move v2f, R1
+VirtualCall R1.1(v2x=1), Rdummy
+StaticCall __checkNullRef(a=v2f),Rdummy
+Move v2f, R2
+VirtualCall R2.0(v2x=2), Rdummy
+# Assignment:
+# Evaluate the expression:
+# new Foo() :
+Library __allocateObject(12), R3
+MoveField _DV_Foo, R3.0
+# Assign the expression:
+Move R3, v2f
+# //Assignment
+StaticCall __checkNullRef(a=v2f),Rdummy
+Move v2f, R4
+VirtualCall R4.1(v2x=4), Rdummy
+StaticCall __checkNullRef(a=v2f),Rdummy
+Move v2f, R5
+VirtualCall R5.0(v2x=5), Rdummy
+# Assignment:
+# Evaluate the expression:
+# new Bar() :
+Library __allocateObject(16), R6
+MoveField _DV_Bar, R6.0
+Move R6, v2b
+# //Assignment
+StaticCall __checkNullRef(a=v2b),Rdummy
+Move v2b, R7
+VirtualCall R7.1(v2x=3), Rdummy
+Library __exit(0), Rdummy
+
+_Foo_rise:
+Library __println(str0), Rdummy
+Library __printi(v2x), Rdummy
+Return 2
+
+_Foo_shine:
+Library __println(str1), Rdummy
+Library __printi(v2x), Rdummy
+Return 1
+
+_Bar_rise:
+Library __println(str2), Rdummy
+Library __printi(v2x), Rdummy
+Return 3
+
+_Bar_twinkle:
+Library __println(str3), Rdummy
+Library __printi(v2x), Rdummy
+Return 4
+

@@ -1,0 +1,306 @@
+# Error Strings:
+str_err_checkNullRef: "Runtime Error: Null pointer dereference!" 
+str_err_checkArrayAccess: "Runtime Error: Array index out of bounds!" 
+str_err_checkSize: "Runtime Error: Array allocation with non-positive array size!" 
+str_err_checkZero: "Runtime Error: Division by zero!" 
+
+str2: " " 
+str3: "" 
+str1: ": " 
+str0: "Primes less than " 
+_DV_Sieve: [_Sieve_sieveAll, _Sieve_printPrimes, _Sieve_initArray, _Sieve_test, _Sieve_sieve]
+
+# Error verification functions:
+
+__checkNullRef:
+Move a, R01
+Compare 0, R01
+JumpTrue _error_checkNullRef
+Return 9999
+
+
+_error_checkNullRef:
+Library __println(str_err_checkNullRef), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkArrayAccess:
+ArrayLength a, R01
+Compare i, R01
+JumpLE _error_checkArrayAccess
+Move i, R01
+Compare 0, R01
+JumpL _error_checkArrayAccess
+Return 9999
+
+_error_checkArrayAccess:
+Library __println(str_err_checkArrayAccess), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkSize:
+Move n, R01
+Compare 0, R01
+JumpLE _error_checkSize
+Return 9999
+
+_error_checkSize:
+Library __println(str_err_checkSize), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkZero:
+Move b, R01
+Compare 0, R01
+JumpTrue _error_checkZero
+Return 9999
+
+_error_checkZero:
+Library __println(str_err_checkZero), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+
+
+_ic_main:
+# new Sieve() :
+Library __allocateObject(8), R0
+MoveField _DV_Sieve, R0.0
+StaticCall __checkNullRef(a=R0),Rdummy
+Move R0, R1
+VirtualCall R1.3(), Rdummy
+Library __exit(0), Rdummy
+
+_Sieve_initArray:
+# Assignment:
+# Evaluate the expression:
+Move 0, v2i
+# //Assignment
+_condition_0lable:
+Move this, R3
+MoveField R3.1, R4
+StaticCall __checkNullRef(a=R4),Rdummy
+ArrayLength R4, R5
+Move v2i, R6
+Compare R5, R6
+JumpL _LT_1lable
+Move 0, R6
+Jump _end_1lable
+_LT_1lable:
+Move 1, R6
+_end_1lable:
+Move R6, R2
+Jump _while_0lable
+_while_0lable:
+Compare 0, R2
+JumpFalse _then_0lable
+Jump _end_0lable
+_then_0lable:
+# Assignment:
+# Evaluate the expression:
+MoveField R3.1, R7
+Move v2i, R9
+StaticCall __checkNullRef(a=R7),Rdummy
+StaticCall __checkArrayAccess(a=R7, i=R9),Rdummy
+MoveArray R7[R9], R8
+# Assign the expression:
+MoveArray v2i, R7[R9]
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+Move v2i, R10
+Add 1, R10
+# Assign the expression:
+Move R10, v2i
+# //Assignment
+Jump _condition_0lable
+_end_0lable:
+Return 9999
+
+_Sieve_sieveAll:
+# Assignment:
+# Evaluate the expression:
+Move 2, v2i
+# //Assignment
+_condition_2lable:
+Move this, R12
+MoveField R12.1, R13
+StaticCall __checkNullRef(a=R13),Rdummy
+ArrayLength R13, R14
+Move v2i, R15
+Compare R14, R15
+JumpL _LT_3lable
+Move 0, R15
+Jump _end_3lable
+_LT_3lable:
+Move 1, R15
+_end_3lable:
+Move R15, R11
+Jump _while_2lable
+_while_2lable:
+Compare 0, R11
+JumpFalse _then_2lable
+Jump _end_2lable
+_then_2lable:
+Move this, R16
+VirtualCall R16.4(v2n=v2i), Rdummy
+# Assignment:
+# Evaluate the expression:
+Move v2i, R17
+Add 1, R17
+# Assign the expression:
+Move R17, v2i
+# //Assignment
+Jump _condition_2lable
+_end_2lable:
+Return 9999
+
+_Sieve_sieve:
+# Assignment:
+# Evaluate the expression:
+Move 2, R18
+Mul v2n, R18
+Move R18, R19
+Move R19, v2i
+# //Assignment
+_condition_4lable:
+Move this, R21
+MoveField R21.1, R22
+StaticCall __checkNullRef(a=R22),Rdummy
+ArrayLength R22, R23
+Move v2i, R24
+Compare R23, R24
+JumpL _LT_5lable
+Move 0, R24
+Jump _end_5lable
+_LT_5lable:
+Move 1, R24
+_end_5lable:
+Move R24, R20
+Jump _while_4lable
+_while_4lable:
+Compare 0, R20
+JumpFalse _then_4lable
+Jump _end_4lable
+_then_4lable:
+# Assignment:
+# Evaluate the expression:
+MoveField R21.1, R25
+Move v2i, R27
+StaticCall __checkNullRef(a=R25),Rdummy
+StaticCall __checkArrayAccess(a=R25, i=R27),Rdummy
+MoveArray R25[R27], R26
+# Assign the expression:
+MoveArray 0, R25[R27]
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+Move v2i, R28
+Add v2n, R28
+Move R28, R29
+# Assign the expression:
+Move R29, v2i
+# //Assignment
+Jump _condition_4lable
+_end_4lable:
+Return 9999
+
+_Sieve_printPrimes:
+# Assignment:
+# Evaluate the expression:
+Move 2, v2i
+# //Assignment
+Library __print(str0), Rdummy
+Move this, R30
+MoveField R30.1, R31
+StaticCall __checkNullRef(a=R31),Rdummy
+ArrayLength R31, R32
+Library __printi(R32), Rdummy
+Library __print(str1), Rdummy
+_condition_6lable:
+MoveField R30.1, R34
+StaticCall __checkNullRef(a=R34),Rdummy
+ArrayLength R34, R35
+Move v2i, R36
+Compare R35, R36
+JumpL _LT_7lable
+Move 0, R36
+Jump _end_7lable
+_LT_7lable:
+Move 1, R36
+_end_7lable:
+Move R36, R33
+Jump _while_6lable
+_while_6lable:
+Compare 0, R33
+JumpFalse _then_6lable
+Jump _end_6lable
+_then_6lable:
+# IF statement:
+MoveField R30.1, R37
+Move v2i, R39
+StaticCall __checkNullRef(a=R37),Rdummy
+StaticCall __checkArrayAccess(a=R37, i=R39),Rdummy
+MoveArray R37[R39], R38
+Compare 0, R38
+JumpFalse _then_8lable
+Move 0, R38
+Jump _end_8lable
+_then_8lable:
+Move 1, R38
+_end_8lable:
+# Done accepting IF boolean expression
+Move R38, R40
+Compare 0, R40
+JumpFalse _then_9lable
+Jump _else_9lable
+_then_9lable:
+MoveField R30.1, R41
+Move v2i, R43
+StaticCall __checkNullRef(a=R41),Rdummy
+StaticCall __checkArrayAccess(a=R41, i=R43),Rdummy
+MoveArray R41[R43], R42
+Library __printi(R42), Rdummy
+Library __print(str2), Rdummy
+Jump _end_9lable
+_else_9lable:
+_end_9lable:
+# //IF statement
+# Assignment:
+# Evaluate the expression:
+Move v2i, R44
+Add 1, R44
+# Assign the expression:
+Move R44, v2i
+# //Assignment
+Jump _condition_6lable
+_end_6lable:
+Return 9999
+
+_Sieve_test:
+Library __println(str3), Rdummy
+# Assignment:
+# Evaluate the expression:
+# Assign the expression:
+Move 100, v2n
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+StaticCall __checkSize(n=v2n),Rdummy
+Move v2n, R46
+Mul 4, R46
+Library __allocateArray(R46), R45
+Move this, R47
+MoveField R47.1, R48
+# Assign the expression:
+MoveField R45, R47.1
+# //Assignment
+Move this, R49
+VirtualCall R49.2(), Rdummy
+Move this, R50
+VirtualCall R50.0(), Rdummy
+Move this, R51
+VirtualCall R51.1(), Rdummy
+Library __println(str3), Rdummy
+Return 9999
+

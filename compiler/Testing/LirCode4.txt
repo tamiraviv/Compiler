@@ -1,0 +1,59 @@
+str1: "No" 
+str0: "Yes!" 
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Library __allocateArray(40), R0
+Move R0, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R2
+MoveArray R2[4], R1
+# Assign the expression:
+MoveArray 10, R2[4]
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+# new B() :
+Library __allocateObject(8), R3
+MoveField _DV_B, R3.0
+Move R3, v2b
+# Done Assignment:
+Move v2a, R5
+MoveArray R5[4], R4
+Move v2b, R6
+VirtualCall R6.0(), R7
+Add R7, R4
+Library __printi(R4), Rdummy
+Library __println(str0), Rdummy
+Move v2a, R9
+MoveArray R9[4], R8
+Move v2b, R10
+VirtualCall R10.0(), R11
+Add R11, R8
+Compare 31, R8
+JumpFalse _then_0lable
+Move 1, R8
+Jump _end_0lable
+_then_0lable:
+Move 0, R8
+_end_0lable:
+Move R8, R12
+Compare 0, R12
+JumpFalse _then_1lable
+Jump _else_1lable
+_then_1lable:
+Library __println(str0), Rdummy
+Jump _end_1lable
+_else_1lable:
+Library __println(str1), Rdummy
+_end_1lable:
+Library __exit(0), Rdummy
+
+_B_func:
+Return 211
+

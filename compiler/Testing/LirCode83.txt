@@ -1,0 +1,18 @@
+_DV_A: []
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Move 5, R0
+Compare 5, R0
+JumpLE _LTE_0lable
+Move 0, R0
+Jump _end_0lable
+_LTE_0lable:
+Move 1, R0
+_end_0lable:
+Move R0, v2a
+# Done Assignment:
+Library __printb(v2a), Rdummy
+Library __exit(0), Rdummy
+

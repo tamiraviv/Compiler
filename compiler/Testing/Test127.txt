@@ -1,0 +1,24 @@
+class A
+{
+	int a;
+	A[] aClass;
+	
+	static void main(string[] args)
+	{
+		A a = new A();
+		
+		if(A.func() == null)
+		{
+			Library.println("Null was returned");
+		}
+		
+		
+	}
+	
+	static A func()
+	{
+		return null;
+	}
+	
+}
+

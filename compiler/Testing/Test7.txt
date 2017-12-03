@@ -1,0 +1,25 @@
+class A
+{
+	
+	static void main(string[] args)
+	{
+
+		int i = 5;
+		Library.printi(i);
+	
+			
+	}
+}
+
+
+class B extends A
+{
+	int b;
+
+    int func()
+	{
+		return 211;
+		
+	}
+
+}

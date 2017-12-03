@@ -1,0 +1,19 @@
+str0: "didn't reach" 
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Move 0, v2i
+# Done Assignment:
+Move 1, R0
+Move 1, R1
+Neg R1
+Library __exit(R1), Rdummy
+Library __println(str0), Rdummy
+Library __exit(0), Rdummy
+
+_B_func:
+Return 211
+

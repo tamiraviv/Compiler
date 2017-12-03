@@ -1,0 +1,28 @@
+class A
+{
+	int a;
+	A[] aClass;
+	
+	static void main(string[] args)
+	{
+		A a = null;
+		
+			if(a == null)		
+				Library.println("a=3");
+		
+	}
+	
+	int func()
+	{
+		a = a + 10;
+		return 1;
+	}
+	
+	static A staticFunc()
+	{
+		int a = 4;
+	
+		return null;
+	}
+}
+

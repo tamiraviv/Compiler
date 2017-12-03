@@ -1,0 +1,16 @@
+_DV_A: []
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Move 2, R0
+Mul 3, R0
+Move 2, R1
+Add R0, R1
+Sub 5, R1
+Mod 2, R1
+Move R1, v2a
+# Done Assignment:
+Library __printi(v2a), Rdummy
+Library __exit(0), Rdummy
+

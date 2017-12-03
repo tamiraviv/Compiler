@@ -1,0 +1,25 @@
+class A
+{
+	
+	static void main(string[] args)
+	{
+		B b;
+		
+		b = new B();
+	
+		b.b=5;
+		b.subB.b=9;
+		//Library.printi(a.length);
+	}
+}
+
+
+class B
+{
+	B subB;
+	int b;
+
+
+}
+
+

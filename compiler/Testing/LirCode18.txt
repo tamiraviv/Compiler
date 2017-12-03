@@ -1,0 +1,19 @@
+str0: "012" 
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Library __stoa(str0), R0
+# Assign the expression:
+Move R0, v2a
+# Done Assignment:
+Move v2a, R2
+MoveArray R2[2], R1
+Library __printi(R1), Rdummy
+Library __exit(0), Rdummy
+
+_B_func:
+Return 211
+

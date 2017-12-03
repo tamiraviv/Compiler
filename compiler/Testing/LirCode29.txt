@@ -1,0 +1,20 @@
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Move 2, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R0
+# Assign the expression:
+Move R0, v2a
+# Done Assignment:
+Library __printi(v2a), Rdummy
+Library __exit(0), Rdummy
+
+_B_func:
+Return 211
+

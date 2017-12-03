@@ -1,0 +1,419 @@
+# Error Strings:
+str_err_checkNullRef: "Runtime Error: Null pointer dereference!" 
+str_err_checkArrayAccess: "Runtime Error: Array index out of bounds!" 
+str_err_checkSize: "Runtime Error: Array allocation with non-positive array size!" 
+str_err_checkZero: "Runtime Error: Division by zero!" 
+
+str4: "(After sunset)" 
+str1: "MooooOoOo!" 
+str0: "Miao!" 
+str3: "(before sunrise)" 
+str2: "Old McDonald" 
+_DV_Farm: [_Farm_test]
+_DV_Farmer: [_Farmer_feedCats, _Farmer_milkCow]
+_DV_Cow: [_Cow_squeezeMilk, _Cow_hasMilk, _Cow_sleep]
+
+# Error verification functions:
+
+__checkNullRef:
+Move a, R01
+Compare 0, R01
+JumpTrue _error_checkNullRef
+Return 9999
+
+
+_error_checkNullRef:
+Library __println(str_err_checkNullRef), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkArrayAccess:
+ArrayLength a, R01
+Compare i, R01
+JumpLE _error_checkArrayAccess
+Move i, R01
+Compare 0, R01
+JumpL _error_checkArrayAccess
+Return 9999
+
+_error_checkArrayAccess:
+Library __println(str_err_checkArrayAccess), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkSize:
+Move n, R01
+Compare 0, R01
+JumpLE _error_checkSize
+Return 9999
+
+_error_checkSize:
+Library __println(str_err_checkSize), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkZero:
+Move b, R01
+Compare 0, R01
+JumpTrue _error_checkZero
+Return 9999
+
+_error_checkZero:
+Library __println(str_err_checkZero), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+
+
+_Farmer_milkCow:
+_condition_0lable:
+StaticCall __checkNullRef(a=v2cow),Rdummy
+Move v2cow, R1
+VirtualCall R1.1(), R2
+Move R2, R0
+Jump _while_0lable
+_while_0lable:
+Compare 0, R0
+JumpFalse _then_0lable
+Jump _end_0lable
+_then_0lable:
+# Assignment:
+# Evaluate the expression:
+Move this, R3
+MoveField R3.3, R4
+StaticCall __checkNullRef(a=v2cow),Rdummy
+Move v2cow, R5
+VirtualCall R5.0(), R6
+Add R6, R4
+MoveField R3.3, R7
+# Assign the expression:
+MoveField R4, R3.3
+# //Assignment
+Jump _condition_0lable
+_end_0lable:
+Return 9999
+
+_Farmer_feedCats:
+# Assignment:
+# Evaluate the expression:
+Move 0, v2i
+# //Assignment
+_condition_1lable:
+Move this, R9
+MoveField R9.1, R10
+Move v2i, R11
+Compare R10, R11
+JumpL _LT_2lable
+Move 0, R11
+Jump _end_2lable
+_LT_2lable:
+Move 1, R11
+_end_2lable:
+MoveField R9.3, R12
+Compare 0, R12
+JumpG _GT_3lable
+Move 0, R12
+Jump _end_3lable
+_GT_3lable:
+Move 1, R12
+_end_3lable:
+And R12, R11
+Move R11, R8
+Jump _while_1lable
+_while_1lable:
+Compare 0, R8
+JumpFalse _then_1lable
+Jump _end_1lable
+_then_1lable:
+Library __println(str0), Rdummy
+# Assignment:
+# Evaluate the expression:
+MoveField R9.3, R13
+Sub 1, R13
+MoveField R9.3, R14
+# Assign the expression:
+MoveField R13, R9.3
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+Move v2i, R15
+Add 1, R15
+# Assign the expression:
+Move R15, v2i
+# //Assignment
+Jump _condition_1lable
+_end_1lable:
+Return 9999
+
+_Cow_hasMilk:
+# IF statement:
+Move this, R16
+MoveField R16.1, R17
+Compare 0, R17
+JumpG _GT_4lable
+Move 0, R17
+Jump _end_4lable
+_GT_4lable:
+Move 1, R17
+_end_4lable:
+# Done accepting IF boolean expression
+Move R17, R18
+Compare 0, R18
+JumpFalse _then_5lable
+Jump _else_5lable
+_then_5lable:
+Return 1
+Jump _end_5lable
+_else_5lable:
+Return 0
+_end_5lable:
+# //IF statement
+
+_Cow_squeezeMilk:
+# IF statement:
+Move this, R19
+VirtualCall R19.1(), R20
+# Done accepting IF boolean expression
+Move R20, R21
+Compare 0, R21
+JumpFalse _then_6lable
+Jump _else_6lable
+_then_6lable:
+# Assignment:
+# Evaluate the expression:
+Move this, R22
+MoveField R22.1, R23
+Sub 1, R23
+MoveField R22.1, R24
+# Assign the expression:
+MoveField R23, R22.1
+# //Assignment
+Library __println(str1), Rdummy
+MoveField R22.1, R25
+Return R25
+Jump _end_6lable
+_else_6lable:
+_end_6lable:
+# //IF statement
+Move 9999, R26
+Neg R26
+Return R26
+
+_Cow_sleep:
+# Assignment:
+# Evaluate the expression:
+Move this, R27
+MoveField R27.1, R28
+Add 10, R28
+MoveField R27.1, R29
+# Assign the expression:
+MoveField R28, R27.1
+# //Assignment
+Return 9999
+
+_ic_main:
+# new Farm() :
+Library __allocateObject(12), R30
+MoveField _DV_Farm, R30.0
+StaticCall __checkNullRef(a=R30),Rdummy
+Move R30, R31
+VirtualCall R31.0(), Rdummy
+Library __exit(0), Rdummy
+
+_Farm_test:
+# Assignment:
+# Evaluate the expression:
+StaticCall __checkSize(n=10),Rdummy
+Move 10, R33
+Mul 4, R33
+Library __allocateArray(R33), R32
+Move this, R34
+MoveField R34.1, R35
+# Assign the expression:
+MoveField R32, R34.1
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+Move 0, v2i
+# //Assignment
+_condition_7lable:
+MoveField R34.1, R37
+StaticCall __checkNullRef(a=R37),Rdummy
+ArrayLength R37, R38
+Move v2i, R39
+Compare R38, R39
+JumpL _LT_8lable
+Move 0, R39
+Jump _end_8lable
+_LT_8lable:
+Move 1, R39
+_end_8lable:
+Move R39, R36
+Jump _while_7lable
+_while_7lable:
+Compare 0, R36
+JumpFalse _then_7lable
+Jump _end_7lable
+_then_7lable:
+# Assignment:
+# Evaluate the expression:
+# new Cow() :
+Library __allocateObject(8), R40
+MoveField _DV_Cow, R40.0
+MoveField R34.1, R41
+Move v2i, R43
+StaticCall __checkNullRef(a=R41),Rdummy
+StaticCall __checkArrayAccess(a=R41, i=R43),Rdummy
+MoveArray R41[R43], R42
+# Assign the expression:
+MoveArray R40, R41[R43]
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+Move v2i, R44
+Mod 2, R44
+Mul 10, R44
+MoveField R34.1, R45
+Move v2i, R47
+StaticCall __checkNullRef(a=R45),Rdummy
+StaticCall __checkArrayAccess(a=R45, i=R47),Rdummy
+MoveArray R45[R47], R46
+StaticCall __checkNullRef(a=R46),Rdummy
+MoveField R46.1, R48
+# Assign the expression:
+MoveField R44, R46.1
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+Move v2i, R49
+Add 1, R49
+# Assign the expression:
+Move R49, v2i
+# //Assignment
+Jump _condition_7lable
+_end_7lable:
+# Assignment:
+# Evaluate the expression:
+# new Farmer() :
+Library __allocateObject(16), R50
+MoveField _DV_Farmer, R50.0
+MoveField R34.2, R51
+# Assign the expression:
+MoveField R50, R34.2
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+MoveField R34.2, R52
+StaticCall __checkNullRef(a=R52),Rdummy
+MoveField R52.2, R53
+# Assign the expression:
+MoveField str2, R52.2
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+MoveField R34.2, R54
+StaticCall __checkNullRef(a=R54),Rdummy
+MoveField R54.3, R55
+# Assign the expression:
+MoveField 0, R54.3
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+MoveField R34.2, R56
+StaticCall __checkNullRef(a=R56),Rdummy
+MoveField R56.1, R57
+# Assign the expression:
+MoveField 20, R56.1
+# //Assignment
+Library __println(str3), Rdummy
+# Assignment:
+# Evaluate the expression:
+# Assign the expression:
+Move 0, v2i
+# //Assignment
+_condition_9lable:
+MoveField R34.1, R59
+StaticCall __checkNullRef(a=R59),Rdummy
+ArrayLength R59, R60
+Move v2i, R61
+Compare R60, R61
+JumpL _LT_10lable
+Move 0, R61
+Jump _end_10lable
+_LT_10lable:
+Move 1, R61
+_end_10lable:
+Move R61, R58
+Jump _while_9lable
+_while_9lable:
+Compare 0, R58
+JumpFalse _then_9lable
+Jump _end_9lable
+_then_9lable:
+MoveField R34.2, R62
+StaticCall __checkNullRef(a=R62),Rdummy
+MoveField R34.1, R63
+Move v2i, R65
+StaticCall __checkNullRef(a=R63),Rdummy
+StaticCall __checkArrayAccess(a=R63, i=R65),Rdummy
+MoveArray R63[R65], R64
+Move R62, R66
+VirtualCall R66.1(v2cow=R64), Rdummy
+# Assignment:
+# Evaluate the expression:
+Move v2i, R67
+Add 1, R67
+# Assign the expression:
+Move R67, v2i
+# //Assignment
+Jump _condition_9lable
+_end_9lable:
+Library __println(str4), Rdummy
+# Assignment:
+# Evaluate the expression:
+# Assign the expression:
+Move 0, v2i
+# //Assignment
+_condition_11lable:
+MoveField R34.1, R69
+StaticCall __checkNullRef(a=R69),Rdummy
+ArrayLength R69, R70
+Move v2i, R71
+Compare R70, R71
+JumpL _LT_12lable
+Move 0, R71
+Jump _end_12lable
+_LT_12lable:
+Move 1, R71
+_end_12lable:
+Move R71, R68
+Jump _while_11lable
+_while_11lable:
+Compare 0, R68
+JumpFalse _then_11lable
+Jump _end_11lable
+_then_11lable:
+MoveField R34.1, R72
+Move v2i, R74
+StaticCall __checkNullRef(a=R72),Rdummy
+StaticCall __checkArrayAccess(a=R72, i=R74),Rdummy
+MoveArray R72[R74], R73
+StaticCall __checkNullRef(a=R73),Rdummy
+Move R73, R75
+VirtualCall R75.2(), Rdummy
+# Assignment:
+# Evaluate the expression:
+Move v2i, R76
+Add 1, R76
+# Assign the expression:
+Move R76, v2i
+# //Assignment
+Jump _condition_11lable
+_end_11lable:
+MoveField R34.2, R77
+StaticCall __checkNullRef(a=R77),Rdummy
+Move R77, R78
+VirtualCall R78.0(), Rdummy
+Return 9999
+Return 9999
+

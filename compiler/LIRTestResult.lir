@@ -1,0 +1,173 @@
+# Error Strings:
+str_err_checkNullRef: "Runtime Error: Null pointer dereference!" 
+str_err_checkArrayAccess: "Runtime Error: Array index out of bounds!" 
+str_err_checkSize: "Runtime Error: Array allocation with non-positive array size!" 
+str_err_checkZero: "Runtime Error: Division by zero!" 
+
+_DV_H: []
+_DV_F: [_B_fun1, _A_fun2, _A_fun3, _A_fun4, _A_fun5, _A_fun6, _B_fun7, _A_fun8, _A_fun9, _B_fun10, _B_lalala]
+_DV_G: []
+_DV_A: [_A_fun1, _A_fun2, _A_fun3, _A_fun4, _A_fun5, _A_fun6, _A_fun7, _A_fun8, _A_fun9, _A_fun10]
+_DV_D: [_D_fun1, _A_fun2, _D_fun3, _D_fun4, _A_fun5, _A_fun6, _B_fun7, _D_fun8, _A_fun9, _B_fun10, _B_lalala, _D_lmlmlm]
+_DV_E: [_B_fun1, _A_fun2, _A_fun3, _A_fun4, _A_fun5, _A_fun6, _B_fun7, _A_fun8, _A_fun9, _B_fun10, _B_lalala]
+_DV_B: [_B_fun1, _A_fun2, _A_fun3, _A_fun4, _A_fun5, _A_fun6, _B_fun7, _A_fun8, _A_fun9, _B_fun10, _B_lalala]
+_DV_C: [_B_fun1, _C_fun2, _A_fun3, _A_fun4, _A_fun5, _C_fun6, _B_fun7, _A_fun8, _C_fun9, _B_fun10, _B_lalala, _C_lilili, _C_lululu, _C_ltltlt]
+
+# Error verification functions:
+
+__checkNullRef:
+Move a, R01
+Compare 0, R01
+JumpTrue _error_checkNullRef
+Return 9999
+
+
+_error_checkNullRef:
+Library __println(str_err_checkNullRef), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkArrayAccess:
+ArrayLength a, R01
+Compare i, R01
+JumpLE _error_checkArrayAccess
+Move i, R01
+Compare 0, R01
+JumpL _error_checkArrayAccess
+Return 9999
+
+_error_checkArrayAccess:
+Library __println(str_err_checkArrayAccess), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkSize:
+Move n, R01
+Compare 0, R01
+JumpLE _error_checkSize
+Return 9999
+
+_error_checkSize:
+Library __println(str_err_checkSize), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkZero:
+Move b, R01
+Compare 0, R01
+JumpTrue _error_checkZero
+Return 9999
+
+_error_checkZero:
+Library __println(str_err_checkZero), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+
+
+_ic_main:
+# Assignment:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(16), R0
+MoveField _DV_A, R0.0
+Move R0, v2a
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+# new B() :
+Library __allocateObject(24), R1
+MoveField _DV_B, R1.0
+Move R1, v2b
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+# new C() :
+Library __allocateObject(32), R2
+MoveField _DV_C, R2.0
+Move R2, v2c
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+# new D() :
+Library __allocateObject(32), R3
+MoveField _DV_D, R3.0
+Move R3, v2d
+# //Assignment
+Library __exit(0), Rdummy
+
+_A_fun1:
+Return 9999
+
+_A_fun2:
+Return 9999
+
+_A_fun3:
+Return 9999
+
+_A_fun4:
+Return 9999
+
+_A_fun5:
+Return 9999
+
+_A_fun6:
+Return 9999
+
+_A_fun7:
+Return 9999
+
+_A_fun8:
+Return 9999
+
+_A_fun9:
+Return 9999
+
+_A_fun10:
+Return 9999
+
+_B_fun1:
+Return 9999
+
+_B_fun7:
+Return 9999
+
+_B_fun10:
+Return 9999
+
+_B_lalala:
+Return 9999
+
+_C_fun2:
+Return 9999
+
+_C_fun6:
+Return 9999
+
+_C_fun9:
+Return 9999
+
+_C_lilili:
+Return 9999
+
+_C_lululu:
+Return 9999
+
+_C_ltltlt:
+Return 9999
+
+_D_fun3:
+Return 9999
+
+_D_fun1:
+Return 9999
+
+_D_fun4:
+Return 9999
+
+_D_fun8:
+Return 9999
+
+_D_lmlmlm:
+Return 9999
+

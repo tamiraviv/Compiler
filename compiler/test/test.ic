@@ -1,0 +1,145 @@
+class A
+{
+	int a;
+	int b;
+	int c;
+	
+	void fun1()
+	{
+	
+	}
+	void fun2()
+	{	
+	}
+	void fun3()
+	{	
+	}		
+	void fun4()
+	{	
+	}   
+	void fun5()
+	{	
+	}
+	void fun6()
+	{	
+	}
+	void fun7()
+	{	
+	}
+	void fun8()
+	{	
+	}
+	void fun9()
+	{	
+	}
+	void fun10()
+	{	
+	}
+
+	
+	static void main(string[] args)
+	{
+		A a = new A();
+		B b = new B();
+		C c = new C();
+		D d = new D();
+	}
+}
+
+class B extends A
+{
+	int d;
+	int e;
+	void fun1()
+	{	
+	}  
+	void fun7()
+	{	
+	}
+	void fun10()
+	{	
+	}
+	
+	void lalala()
+	{
+	
+	}
+	
+
+	
+}
+
+class C extends B
+{
+	int f;
+	int g;
+	void fun2()
+	{	
+	}  
+	void fun6()
+	{	
+	}
+	void fun9()
+	{	
+	}
+	
+	void lilili()
+	{
+	
+	}
+	
+	void lululu()
+	{
+	
+	}
+	
+	void ltltlt()
+	{
+	
+	}
+
+	
+}
+class D extends B
+{
+	int h;
+	int i;
+	void fun3()
+	{	
+	} 
+	void fun1()
+	{	
+	} 	
+	void fun4()
+	{	
+	}
+	void fun8()
+	{	
+	}
+	
+	void lmlmlm()
+	{
+	
+	}
+	
+} 
+class E extends B
+{
+	
+} 
+class F extends E
+{
+	
+} 
+
+class G
+{
+
+}
+
+class H extends G
+{
+
+
+}
+

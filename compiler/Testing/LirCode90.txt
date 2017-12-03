@@ -1,0 +1,12 @@
+_DV_A: []
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Move 100, R0
+Sub 200, R0
+Move R0, v2a
+# Done Assignment:
+Library __printi(v2a), Rdummy
+Library __exit(0), Rdummy
+

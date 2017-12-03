@@ -1,0 +1,27 @@
+class A
+{
+	int a;
+	A[] aClass;
+	
+	static void main(string[] args)
+	{
+		A a1 = new A();
+		a1.aClass = new A[10];
+		
+		a1.aClass[0] = new A();
+		a1.aClass[0].aClass = new A[5];
+		a1.aClass[0].aClass[0] = new A();
+		a1.aClass[0].aClass[0].a=15;
+		a1.aClass[0].aClass[1] = new A();
+		a1.aClass[0].aClass[1].a=16;
+		Library.printi(a1.aClass[0].aClass[0].a); Library.println("");
+		Library.printi(a1.aClass[0].aClass[1].a); Library.println("");
+		Library.printi(a1.aClass[0].aClass[0].a); Library.println("");
+		Library.printi(a1.aClass[0].aClass[1].a); Library.println("");
+
+		
+		
+	}
+	
+}
+

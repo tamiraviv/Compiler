@@ -1,0 +1,74 @@
+# Error Strings:
+str_err_checkNullRef: "Runtime Error: Null pointer dereference!" 
+str_err_checkArrayAccess: "Runtime Error: Array index out of bounds!" 
+str_err_checkSize: "Runtime Error: Array allocation with non-positive array size!" 
+str_err_checkZero: "Runtime Error: Division by zero!" 
+
+_DV_A: []
+_DV_B: []
+
+# Error verification functions:
+
+__checkNullRef:
+Move a, R01
+Compare 0, R01
+JumpTrue _error_checkNullRef
+Return 9999
+
+
+_error_checkNullRef:
+Library __println(str_err_checkNullRef), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkArrayAccess:
+ArrayLength a, R01
+Compare i, R01
+JumpLE _error_checkArrayAccess
+Move i, R01
+Compare 0, R01
+JumpL _error_checkArrayAccess
+Return 9999
+
+_error_checkArrayAccess:
+Library __println(str_err_checkArrayAccess), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+__checkSize:
+Move n, R01
+Compare 0, R01
+JumpLE _error_checkArrayAccess
+Return 9999
+
+_error_checkSize:
+Library __println(str_err_checkSize), Rdummy
+Library __exit(1), Rdummy
+Return 9999
+
+
+
+_ic_main:
+# Assignment:
+# Evaluate the expression:
+Move 5, v2c
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+StaticCall __checkSize(n=v2c),Rdummy
+Move v2c, R1
+Mul 4, R1
+Library __allocateArray(R1), R0
+Move R0, v2a
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+Move v2a, R3
+StaticCall __checkNullRef(a=R3),Rdummy
+StaticCall __checkArrayAccess(a=R3, i=4),Rdummy
+MoveArray R3[4], R2
+# Assign the expression:
+MoveArray 12, R3[4]
+# //Assignment
+Library __exit(0), Rdummy
+

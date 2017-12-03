@@ -1,0 +1,31 @@
+class A 
+{
+  int x;
+  string s;
+
+  int foo(int y) 
+  {
+    int z=y+1;
+    return z;
+  }
+  
+  static void main(string[] args) 
+  {
+    A p = new B();
+    p.foo(5);
+  }
+}
+
+class B extends A 
+{
+  int z;
+  int foo(int y) 
+  {
+    s = "y=" + Library.itos(y); // "y=5"
+    Library.println(s); // "y=5"
+    int[] sarr = Library.stoa(s); // "y=5"
+    int l = sarr.length;
+    Library.printi(l); // 3
+    return l; // 3
+  }
+}

@@ -1,0 +1,44 @@
+class A
+{
+	
+	static void main(string[] args)
+	{
+	
+		B b = new B();
+		
+		int a = 5;
+		int d = 10;
+		
+		int[] arr = new int[10];
+		
+		arr[0] = 20;
+		
+		b.func(arr[0],d);
+		
+		Library.println(""); Library.println("a="); Library.printi(a);
+
+		//A[] a = null;
+
+		//if(a.length == 5)
+		//{ Library.printi(5);}
+	}
+}
+
+
+class B extends A
+{
+	int b;
+
+    int func(int a, int b)
+	{
+		Library.println("a=");
+		Library.printi(a);
+		Library.println("");
+		Library.println("b=");
+		Library.printi(b);
+
+		return 0;
+		
+	}
+
+}

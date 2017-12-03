@@ -1,0 +1,22 @@
+str2: " something" 
+str0: "string " 
+str1: "testing " 
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Move str0, R0
+Library __stringCat(str0, str1), R0
+Move R0, R1
+Library __stringCat(R0, str2), R1
+Move R1, R2
+Move R2, v2a
+# Done Assignment:
+Library __println(v2a), Rdummy
+Library __exit(0), Rdummy
+
+_B_func:
+Return 211
+

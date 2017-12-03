@@ -1,0 +1,112 @@
+str1: "" 
+str2: "Done" 
+str0: "123a" 
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Move str0, R0
+Move R0, v2str
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __stoi(v2str), R1
+Move R1, v2a
+# Done Assignment:
+Library __printi(v2a), Rdummy
+Library __exit(0), Rdummy
+
+_A_fun1:
+# AssignStmt:
+# Evaluate the expression:
+Library __allocateArray(12), R2
+Move R2, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move 0, v2i
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R4
+MoveArray R4[0], R3
+# Assign the expression:
+MoveArray 0, R4[0]
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R6
+MoveArray R6[1], R5
+# Assign the expression:
+MoveArray 1, R6[1]
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R8
+MoveArray R8[2], R7
+# Assign the expression:
+MoveArray 2, R8[2]
+# Done Assignment:
+_condition_0lable:
+Move v2i, R10
+Compare 3, R10
+JumpL _LT_1lable
+Move 0, R10
+Jump _end_1lable
+_LT_1lable:
+Move 1, R10
+_end_1lable:
+Move R10, R9
+Jump _while_0lable
+_while_0lable:
+Compare 0, R9
+JumpFalse _then_0lable
+Jump _end_0lable
+_then_0lable:
+Move v2i, R11
+Compare 2, R11
+JumpFalse _then_2lable
+Move 1, R11
+Jump _end_2lable
+_then_2lable:
+Move 0, R11
+_end_2lable:
+Move R11, R12
+Compare 0, R12
+JumpFalse _then_3lable
+Jump _else_3lable
+_then_3lable:
+Return 9999
+# AssignStmt:
+# Evaluate the expression:
+Move v2i, R13
+Add 1, R13
+# Assign the expression:
+Move R13, v2i
+# Done Assignment:
+Jump _condition_0lable
+Jump _end_3lable
+_else_3lable:
+_end_3lable:
+Move v2a, R15
+Move v2i, R16
+MoveArray R15[R16], R14
+Library __printi(R14), Rdummy
+Library __println(str1), Rdummy
+# AssignStmt:
+# Evaluate the expression:
+Move v2i, R17
+Add 1, R17
+# Assign the expression:
+Move R17, v2i
+# Done Assignment:
+Jump _condition_0lable
+_end_0lable:
+Library __println(str2), Rdummy
+Return 9999
+
+_B_func:
+Return 211
+

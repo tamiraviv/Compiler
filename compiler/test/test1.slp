@@ -1,0 +1,38 @@
+class A
+{
+
+	int a;
+	A b;
+
+}
+
+class TmpClass extends A
+{
+
+	int accept(int visitor, int d_arr) 
+	{
+	
+		A a = new A();  // ok
+		A a2 = new B();   // not ok
+		A a3 = new TmpClass();  // should be ok
+		int c;
+		int a;
+		string y = "hi";
+		
+		c = 2+y;
+		
+		
+		{
+			int b;
+			//int a;
+			
+			b = a;
+		}
+		
+		b = c;
+		
+	}
+
+}
+
+

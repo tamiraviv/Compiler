@@ -1,0 +1,28 @@
+class A
+{
+	
+	static void main(string[] args)
+	{
+		B b = new B();
+		
+		b.func1();
+		
+		//Library.printi(a.length);
+	}
+}
+
+
+class B
+{
+
+	void func1()
+	{
+		func2();
+	}
+	
+	void func2()
+	{
+		Library.printi(2);
+	}
+	
+}

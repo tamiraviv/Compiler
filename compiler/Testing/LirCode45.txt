@@ -1,0 +1,81 @@
+str0: "" 
+str1: "Done" 
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Library __allocateArray(12), R0
+Move R0, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move 0, v2i
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R2
+MoveArray R2[0], R1
+# Assign the expression:
+MoveArray 0, R2[0]
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R4
+MoveArray R4[1], R3
+# Assign the expression:
+MoveArray 1, R4[1]
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R6
+MoveArray R6[2], R5
+# Assign the expression:
+MoveArray 2, R6[2]
+# Done Assignment:
+_condition_0lable:
+Move 1, R8
+Compare 1, R8
+JumpL _LT_1lable
+Move 0, R8
+Jump _end_1lable
+_LT_1lable:
+Move 1, R8
+_end_1lable:
+Move v2i, R9
+Compare 3, R9
+JumpL _LT_2lable
+Move 0, R9
+Jump _end_2lable
+_LT_2lable:
+Move 1, R9
+_end_2lable:
+And R9, R8
+Move R8, R7
+Jump _while_0lable
+_while_0lable:
+Compare 0, R7
+JumpFalse _then_0lable
+Jump _end_0lable
+_then_0lable:
+Move v2a, R11
+Move v2i, R12
+MoveArray R11[R12], R10
+Library __printi(R10), Rdummy
+Library __println(str0), Rdummy
+# AssignStmt:
+# Evaluate the expression:
+Move v2i, R13
+Add 1, R13
+# Assign the expression:
+Move R13, v2i
+# Done Assignment:
+Jump _condition_0lable
+_end_0lable:
+Library __println(str1), Rdummy
+Library __exit(0), Rdummy
+
+_B_func:
+Return 211
+

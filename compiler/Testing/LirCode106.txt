@@ -1,0 +1,40 @@
+str0: "" 
+_DV_A: [_A_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R0
+MoveField _DV_A, R0.0
+Move R0, v2a1
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a1, R1
+MoveField R1.2, R2
+# Assign the expression:
+MoveField 10, R1.2
+# Done Assignment:
+Move v2a1, R3
+VirtualCall R3.0(), R4
+Library __printi(R4), Rdummy
+Library __println(str0), Rdummy
+Move v2a1, R5
+VirtualCall R5.0(), R6
+Library __printi(R6), Rdummy
+Library __println(str0), Rdummy
+Library __exit(0), Rdummy
+
+_A_func:
+# AssignStmt:
+# Evaluate the expression:
+Move this, R7
+MoveField R7.2, R8
+Add 10, R8
+# Assign the expression:
+MoveField R8, R7.2
+# Done Assignment:
+MoveField R7.2, R9
+Return R9
+

@@ -1,0 +1,14 @@
+class A
+{
+	
+	static void main(string[] args)
+	{
+		
+		boolean a =  1 > 2;
+		Library.printb(a);
+		
+		
+	}
+	
+}
+

@@ -1,0 +1,21 @@
+class A
+{
+	
+	static void main(string[] args)
+	{
+		B b;
+		int c = 1;
+		B[] bb = new B[12];
+		
+		
+		//Library.printi(a.length);
+	}
+}
+
+
+class B
+{
+
+}
+
+

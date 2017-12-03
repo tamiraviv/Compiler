@@ -1,0 +1,66 @@
+str0: "" 
+_DV_A: [_A_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R0
+MoveField _DV_A, R0.0
+Move R0, v2a1
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a1, R1
+MoveField R1.2, R2
+# Assign the expression:
+MoveField 10, R1.2
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R3
+MoveField _DV_A, R3.0
+Move R3, v2a2
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a2, R4
+MoveField R4.2, R5
+# Assign the expression:
+MoveField 100, R4.2
+# Done Assignment:
+Move v2a1, R6
+VirtualCall R6.0(), R7
+Library __printi(R7), Rdummy
+Library __println(str0), Rdummy
+Move v2a1, R8
+VirtualCall R8.0(), R9
+Library __printi(R9), Rdummy
+Library __println(str0), Rdummy
+Move v2a2, R10
+VirtualCall R10.0(), R11
+Library __printi(R11), Rdummy
+Library __println(str0), Rdummy
+Move v2a2, R12
+VirtualCall R12.0(), R13
+Library __printi(R13), Rdummy
+Library __println(str0), Rdummy
+Move v2a1, R14
+VirtualCall R14.0(), R15
+Library __printi(R15), Rdummy
+Library __println(str0), Rdummy
+Library __exit(0), Rdummy
+
+_A_func:
+# AssignStmt:
+# Evaluate the expression:
+Move this, R16
+MoveField R16.2, R17
+Add 10, R17
+# Assign the expression:
+MoveField R17, R16.2
+# Done Assignment:
+MoveField R16.2, R18
+Return R18
+

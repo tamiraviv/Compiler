@@ -1,0 +1,11 @@
+str0: "Library.print() test" 
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+Library __print(str0), Rdummy
+Library __exit(0), Rdummy
+
+_B_func:
+Return 211
+

@@ -1,0 +1,14 @@
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Move 1, v2i
+# Done Assignment:
+Library __printb(v2i), Rdummy
+Library __exit(0), Rdummy
+
+_B_func:
+Return 211
+

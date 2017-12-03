@@ -1,0 +1,2 @@
+Array elements: 77 99 44 55 22 88 11 0 66 33 
+Array elements: 0 11 22 33 44 55 66 77 88 99 

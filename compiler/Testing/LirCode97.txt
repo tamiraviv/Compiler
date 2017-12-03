@@ -1,0 +1,83 @@
+str0: "" 
+_DV_A: []
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Library __allocateArray(40), R0
+Move R0, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R1
+MoveField _DV_A, R1.0
+Move v2a, R3
+MoveArray R3[0], R2
+# Assign the expression:
+MoveArray R1, R3[0]
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R4
+MoveField _DV_A, R4.0
+Move v2a, R6
+MoveArray R6[1], R5
+# Assign the expression:
+MoveArray R4, R6[1]
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R8
+MoveArray R8[0], R7
+MoveField R7.1, R9
+# Assign the expression:
+MoveField 0, R7.1
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R11
+MoveArray R11[1], R10
+MoveField R10.1, R12
+# Assign the expression:
+MoveField 1, R10.1
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+# new A() :
+Library __allocateObject(12), R13
+MoveField _DV_A, R13.0
+Move v2a, R15
+MoveArray R15[0], R14
+MoveField R14.2, R16
+# Assign the expression:
+MoveField R13, R14.2
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Move v2a, R18
+MoveArray R18[0], R17
+MoveField R17.2, R19
+MoveField R19.1, R20
+# Assign the expression:
+MoveField 10, R19.1
+# Done Assignment:
+Move v2a, R22
+MoveArray R22[0], R21
+MoveField R21.1, R23
+Library __printi(R23), Rdummy
+Library __println(str0), Rdummy
+Move v2a, R25
+MoveArray R25[1], R24
+MoveField R24.1, R26
+Library __printi(R26), Rdummy
+Library __println(str0), Rdummy
+Move v2a, R28
+MoveArray R28[0], R27
+MoveField R27.2, R29
+MoveField R29.1, R30
+Library __printi(R30), Rdummy
+Library __println(str0), Rdummy
+Library __exit(0), Rdummy
+

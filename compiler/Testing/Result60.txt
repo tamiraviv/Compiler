@@ -1,0 +1,2 @@
+1
+java.lang.RuntimeException: Attempt to return from the main function!

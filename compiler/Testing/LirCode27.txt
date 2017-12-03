@@ -1,0 +1,100 @@
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R0
+# Assign the expression:
+Move R0, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R1
+# Assign the expression:
+Move R1, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R2
+# Assign the expression:
+Move R2, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R3
+# Assign the expression:
+Move R3, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R4
+# Assign the expression:
+Move R4, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R5
+# Assign the expression:
+Move R5, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R6
+# Assign the expression:
+Move R6, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R7
+# Assign the expression:
+Move R7, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R8
+# Assign the expression:
+Move R8, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R9
+# Assign the expression:
+Move R9, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R10
+# Assign the expression:
+Move R10, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R11
+# Assign the expression:
+Move R11, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R12
+# Assign the expression:
+Move R12, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R13
+# Assign the expression:
+Move R13, v2a
+# Done Assignment:
+# AssignStmt:
+# Evaluate the expression:
+Library __time(), R14
+# Assign the expression:
+Move R14, v2a
+# Done Assignment:
+Library __printi(v2a), Rdummy
+Library __exit(0), Rdummy
+
+_B_func:
+Return 211
+

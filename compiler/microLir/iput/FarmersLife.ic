@@ -1,0 +1,103 @@
+/**
+ * Test number 1: 
+ * A day in the life of a farmer.
+ */
+
+class Farmer {
+  
+  string name;
+  int catAmount;
+  int milk;
+
+  void milkCow(Cow cow) {
+    while(cow.hasMilk()){
+    	milk = milk + cow.squeezeMilk();
+    }   
+  }
+  
+  void feedCats(){
+  	int i = 0;
+  	while(i < catAmount && milk>0){
+  		Library.println("Miao!");
+  		milk = milk - 1;
+  		i = i + 1;
+  	} 	
+  }
+}
+
+class Cow {
+
+	int milk;
+	
+	boolean hasMilk(){
+		if(milk > 0)
+			return true;
+		else
+			return false;
+	}
+	
+	int squeezeMilk()
+	{
+		if(hasMilk())
+		{
+			milk = milk - 1;
+			Library.println("MooooOoOo!");
+			return milk;
+		}
+		
+		return -9999;
+	}
+	
+	void sleep(){
+		milk = milk + 10;
+	}
+}
+
+class Farm {
+
+	Farmer farmer;
+	Cow [] cows;
+	
+	static void main(string[] args) {
+	    (new Farm()).test();
+  	}
+
+	/** 
+	 * Tests a day in the life of a farmer.
+	 */
+	void test() {
+		
+	    cows = new Cow[10];
+	    int i = 0;
+	    while(i < cows.length){
+	    	cows[i] = new Cow();
+	    	cows[i].milk = (i%2)*10;
+	    	i = i + 1;
+	    }
+	    
+		// Create a stereotypical farmer:
+		farmer = new Farmer();		
+		farmer.name = "Old McDonald";
+		farmer.milk = 0;		
+		farmer.catAmount = 20;
+		
+		// Commence daily routine!
+		Library.println("(before sunrise)");
+		i = 0;
+	    while(i < cows.length){
+	    	farmer.milkCow(cows[i]);
+	    	i = i + 1;
+	    }						
+		Library.println("(After sunset)");
+		i = 0;
+	    while(i < cows.length){
+	    	cows[i].sleep();
+	    	i = i + 1;
+	    }							
+   		
+   		// Oh oh - the cats are hungry!
+		farmer.feedCats();	
+		
+		return;
+  }
+}

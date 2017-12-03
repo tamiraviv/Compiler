@@ -1,0 +1,18 @@
+class A
+{
+	
+	static void main(string[] args)
+	{
+		int[] a = new int[-12];
+		
+		//Library.printi(a.length);
+	}
+}
+
+
+class B
+{
+
+}
+
+

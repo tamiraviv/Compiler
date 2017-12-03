@@ -1,0 +1,33 @@
+str0: "" 
+str2: "b=" 
+str1: "a=" 
+_DV_A: []
+_DV_B: [_B_func]
+
+_ic_main:
+# Assignment:
+# Evaluate the expression:
+# new B() :
+Library __allocateObject(8), R0
+MoveField _DV_B, R0.0
+Move R0, v2b
+# //Assignment
+# Assignment:
+# Evaluate the expression:
+Move 5, v2a
+# //Assignment
+Move v2b, R1
+VirtualCall R1.0(v2a=1, v2b=2), Rdummy
+Library __println(str0), Rdummy
+Library __println(str1), Rdummy
+Library __printi(v2a), Rdummy
+Library __exit(0), Rdummy
+
+_B_func:
+Library __println(str1), Rdummy
+Library __printi(v2a), Rdummy
+Library __println(str0), Rdummy
+Library __println(str2), Rdummy
+Library __printi(v2b), Rdummy
+Return 0
+

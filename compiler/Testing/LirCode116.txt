@@ -1,0 +1,46 @@
+str0: "a=3" 
+_DV_A: [_A_func]
+
+_ic_main:
+# AssignStmt:
+# Evaluate the expression:
+Move 0, v2a
+# Done Assignment:
+Move v2a, R0
+Move 0, R1
+Compare R1, R0
+JumpFalse _then_0lable
+Move 1, R0
+Jump _end_0lable
+_then_0lable:
+Move 0, R0
+_end_0lable:
+Move R0, R2
+Compare 0, R2
+JumpFalse _then_1lable
+Jump _else_1lable
+_then_1lable:
+Library __println(str0), Rdummy
+Jump _end_1lable
+_else_1lable:
+_end_1lable:
+Library __exit(0), Rdummy
+
+_A_staticFunc:
+# AssignStmt:
+# Evaluate the expression:
+Move 4, v2a
+# Done Assignment:
+Return 0
+
+_A_func:
+# AssignStmt:
+# Evaluate the expression:
+Move this, R3
+MoveField R3.1, R4
+Add 10, R4
+# Assign the expression:
+MoveField R4, R3.1
+# Done Assignment:
+Return 1
+
